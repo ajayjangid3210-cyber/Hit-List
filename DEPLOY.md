@@ -1,38 +1,42 @@
 ## Railway Backend Deployment
 
-1. Go to railway.app → Login → New Project
-2. "Deploy from GitHub repo" → select teamflow repo
-3. Set Root Directory: backend
+1. Go to [Railway.app](https://railway.app) → Login → New Project
+2. "Deploy from GitHub repo" → select the **Hit-List** repo
+3. Set Root Directory: `backend`
 4. Railway auto-detects Node.js
 
 5. Add Environment Variables (Variables tab):
-   MONGO_URI = mongodb+srv://uddeshya2015_db_user:Uu1%23Uu1%23@cluster0.laxwp4v.mongodb.net/teamflow?appName=Cluster0
-   JWT_SECRET = teamflow_super_secret_jwt_key_2024_minimum_32_chars
+   MONGO_URI = <YOUR_MONGODB_URI_HERE>
+   JWT_SECRET = <YOUR_SECURE_JWT_SECRET_HERE>
    JWT_EXPIRE = 7d
    NODE_ENV = production
    PORT = 5000
-   CLIENT_URL = https://VERCEL_URL_HERE (update after Vercel deploy)
+   CLIENT_URL = https://hit-list-snowy.vercel.app
 
 6. Deploy → watch logs
 7. Must see: "MongoDB Atlas Connected" + "Server running on port 5000"
-8. Copy Railway URL: https://xxx.up.railway.app
-9. Test: https://xxx.up.railway.app/health → { status:"ok" }
+8. Your Railway URL is: https://hit-list-production.up.railway.app
+9. Test: https://hit-list-production.up.railway.app/health → `{ status:"ok" }`
+
+---
 
 ## Vercel Frontend Deployment
 
-1. Go to vercel.com → Login → New Project
-2. Import GitHub repo → teamflow
-3. Set Root Directory: frontend
+1. Go to [Vercel.com](https://vercel.com) → Login → New Project
+2. Import GitHub repo → **Hit-List**
+3. Set Root Directory: `frontend`
 4. Framework Preset: Vite
-5. Build Command: npm run build
-6. Output Directory: dist
+5. Build Command: `npm run build`
+6. Output Directory: `dist`
 7. Add Environment Variable:
-   VITE_API_URL = https://YOUR_RAILWAY_URL/api
+   VITE_API_URL = https://hit-list-production.up.railway.app/api
 8. Deploy → get live URL
-9. Copy Vercel URL
+9. Your Vercel URL is: https://hit-list-snowy.vercel.app
+
+---
 
 ## After Both Deployed:
-- Go to Railway → Variables → update CLIENT_URL = https://YOUR_VERCEL_URL
-- Redeploy Railway backend
-- Test live: register, login, create project, create task
-- Update README.md with live URLs
+- Go to Railway → Variables → ensure `CLIENT_URL` matches your Vercel URL.
+- Redeploy Railway backend if you made changes to the variables.
+- Test live: register, login, create project, create task.
+- Update `README.md` with live URLs.
