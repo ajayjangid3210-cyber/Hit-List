@@ -18,12 +18,20 @@ const app = express();
 app.set('trust proxy', 1);
 
 app.use(helmet());
+
+// --- UPDATED CORS CONFIGURATION ---
 app.use(cors({
-  origin: process.env.CLIENT_URL || '*',
+  origin: [
+    'http://localhost:5173', // For local development
+    'https://hit-list-snowy.vercel.app', // For your live Vercel frontend
+    process.env.CLIENT_URL // Keeps your env variable option working just in case
+  ].filter(Boolean), // This cleanly filters out undefined variables
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
+// ----------------------------------
+
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
 
