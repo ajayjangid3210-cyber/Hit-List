@@ -1,7 +1,6 @@
-# ⚡ TeamFlow — Team Task Manager
+# ⚡ Hit List — Team Task Manager
 
-> A production-grade full-stack SaaS application for managing teams,
-> projects, and tasks with role-based access control.
+> ⚡ A production-grade full-stack SaaS application designed for efficient 👥 team, 📂 project, and ✅ task management with 🔒 role-based access control and seamless collaboration features.
 
 ![Tech Stack](https://img.shields.io/badge/React-18-blue)
 ![Node.js](https://img.shields.io/badge/Node.js-Express-green)
@@ -9,8 +8,8 @@
 ![Deploy](https://img.shields.io/badge/Deploy-Railway-purple)
 
 ## 🔗 Live Demo
-- **Frontend:** [https://teamflow-ebon.vercel.app](https://teamflow-ebon.vercel.app)
-- **Backend API:** [https://teamflow-production-eddc.up.railway.app](https://teamflow-production-eddc.up.railway.app)
+- **Frontend:** [https://hit-list-snowy.vercel.app](https://hit-list-snowy.vercel.app)
+- **Backend API:** [https://hit-list-production.up.railway.app](https://hit-list-production.up.railway.app)
 - **Test Admin:** admin@test.com / Admin@123456
 - **Test Member:** member@test.com / Member@123456
 
@@ -45,7 +44,7 @@
 ### Backend Setup
 ```bash
 cd backend
-cp .env.example .env
+cp .env .env
 # Add your MONGO_URI in .env
 npm install
 npm run dev
